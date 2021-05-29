@@ -61,8 +61,8 @@ void EVIC::setup() {
 	Device::setup(); // run the parent class version of this function
 	
 	// register ourselves as observer of all 0x404 and 0x505 can frames from JLD505
-        CanHandler::getInstanceCar()->attach(this, 0x404, 0x7ff, false);
-        CanHandler::getInstanceCar()->attach(this, 0x505, 0x7ff, false);
+  //      CanHandler::getInstanceCar()->attach(this, 0x404, 0x7ff, false);
+  //      CanHandler::getInstanceCar()->attach(this, 0x505, 0x7ff, false);
 	CanHandler::getInstanceCar()->attach(this, CAN_SWITCH, 0x7ff, false);
            
          MotorController* motorController = DeviceManager::getInstance()->getMotorController();
@@ -146,16 +146,16 @@ void EVIC::handleCanFrame(CAN_FRAME *frame)
 void EVIC::handleTick() 
 {
     
-   if(testMode==0)
-      {
+//   if(testMode==0)
+//      {
         sendCmdCurtis();
-        sendCmdOrion();
-       }		
-    else
-       {
-        sendTestCmdCurtis();
-        sendTestCmdOrion();
-        }				
+//        sendCmdOrion();
+//       }		
+//    else
+//       {
+//        sendTestCmdCurtis();
+//        sendTestCmdOrion();
+//        }				
 }
 
 
@@ -256,12 +256,12 @@ void EVIC::sendCmdCurtis()
  
       MotorController* motorController = DeviceManager::getInstance()->getMotorController();
   
-  if(millis()-timemark>2000)
-    {
+  //if(millis()-timemark>2000)
+  //  {
         dcCurrent=motorController->getDcCurrent();
         dcVoltage=motorController->getDcVoltage();
       
-    }
+  //  }
     CAN_FRAME output;
 	  output.length = 8;
 	  output.id = 0x601;
@@ -502,7 +502,3 @@ uint8_t  EVIC::getCello()
    return Cello;
  }
     
-
-
-
-
