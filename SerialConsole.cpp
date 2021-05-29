@@ -69,7 +69,7 @@ void SerialConsole::printMenu() {
 	MotorController* motorController = (MotorController*) DeviceManager::getInstance()->getMotorController();
 	Throttle *accelerator = DeviceManager::getInstance()->getAccelerator();
 	Throttle *brake = DeviceManager::getInstance()->getBrake();
-	ICHIPWIFI *wifi = (ICHIPWIFI*) DeviceManager::getInstance()->getDeviceByType(DEVICE_WIFI);
+//	ICHIPWIFI *wifi = (ICHIPWIFI*) DeviceManager::getInstance()->getDeviceByType(DEVICE_WIFI);
 
 	//Show build # here as well in case people are using the native port and don't get to see the start up messages
 	SerialUSB.print("Build number: ");
@@ -789,5 +789,3 @@ void SerialConsole::getResponse(){
               
 }
         
-
-
