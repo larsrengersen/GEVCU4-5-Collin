@@ -215,7 +215,7 @@ void createObjects() {
 	PotBrake *pbrake = new PotBrake();
 	CanBrake *cbrake = new CanBrake();
 	DmocMotorController *dmotorController = new DmocMotorController();
-    CodaMotorController *cmotorController = new CodaMotorController();
+//    CodaMotorController *cmotorController = new CodaMotorController();
         DCDCController *dcdcController = new DCDCController();
 	BrusaMotorController *bmotorController = new BrusaMotorController();
 	ThinkBatteryManager *BMS = new ThinkBatteryManager();
@@ -323,7 +323,3 @@ void loop() {
 	//this should still be here. It checks for a flag set during an interrupt
 	sys_io_adc_poll();
 }
-
-
-
-
