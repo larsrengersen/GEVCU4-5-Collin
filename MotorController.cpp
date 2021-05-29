@@ -294,7 +294,7 @@ void MotorController::checkBrakeLight()
   {
    int brakelight=getBrakeLight();  //Get brakelight output once
  
-   if(getTorqueActual() < -100)  //We only want to turn on brake light if we are have regen of more than 10 newton meters
+   if(getTorqueActual() < -300)  //We only want to turn on brake light if we are have regen of more than 30 newton meters
        {
          setOutput(brakelight, 1); //Turn on brake light output
          statusBitfield1 |=1 << brakelight; //set bit to turn on brake light output annunciator
@@ -629,5 +629,3 @@ void MotorController::saveConfiguration() {
 	prefsHandler->saveChecksum();
 	loadConfiguration();
 }
-
-
